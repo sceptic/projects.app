@@ -1,0 +1,36 @@
+
+//REQUIRES:
+
+var express = require("express.io"),
+	_= require("underscore"),
+	mongoose=require("mongoose");
+
+//Controllers:
+var appController = require("./app/controller/defaultController");
+
+//===========================
+
+//EXPRESS & SOCKET.io Settings:
+
+var app = express();
+app.http().io();
+
+// Static files:
+
+app.use(express.static("./public"));
+
+//===========================
+
+
+
+appController( app );
+
+
+//  Run server //
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+var server  =  app.listen(3000, function() {
+	console.log("RUN SERVER!");
+    console.log('http://localhost: %d', server.address().port);
+	console.log("======================================================");
+});
