@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+	<title>Projects app</title>
 	<link rel="stylesheet" href="">
 </head>
 <body>
@@ -30,6 +30,21 @@
 	<footer>
 		<h3>Footer</h3>
 	</footer>
+<!--=================================
+TEMPLATES
+=====================================
+-->
+<script id="project_item" type="text/template">
+	<div class="project_item">
+		<h3>XX DATA : {{data}}</h3>
+	</div>
+</script>
+
+<script id="article-templates" type="text/template">
+	<div class="project_item">
+		<h3>_ DATA  _ :</h3>
+	</div>
+</script>
 
 <!--=================================
 /SCRIPTS:
@@ -39,6 +54,7 @@
 <script src="/lib/jquery.min.js" charset="utf-8" ></script>
 <script src="/lib/underscore.min.js" charset="utf-8" ></script>
 <script src="/lib/backbone.min.js" charset="utf-8" ></script>
+<script src="/lib/swig.min.js" charset="utf-8" ></script>
 <!--mis JSs-->
 <script src="/js/init.js" charset="utf-8" ></script>
 <script src="/js/collection/proyectos.js" charset="utf-8"></script>
@@ -48,8 +64,8 @@
 </script>
 <script>
 $(function(){
-	console.log("WORK LIBS!");
-
+	App.View.Project = new Class.View.Project();
+	App.View.Project.render();
 });
 
 </script>
