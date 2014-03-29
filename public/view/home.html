@@ -37,15 +37,11 @@ TEMPLATES
 {% raw %}
 <script id="project_item" type="text/template">
 	<div class="project_item">
-		<h3>XX DATA : {{data}}</h3>
+		<h3>{{titulo}}</h3>
 	</div>
 </script>
 
-<script id="article-templates" type="text/template">
-	<div class="project_item">
-		<h3>_ DATA  _ :</h3>
-	</div>
-</script>
+
 {% endraw %}
 <!--=================================
 /SCRIPTS:
@@ -58,15 +54,19 @@ TEMPLATES
 <script src="/lib/swig.min.js" charset="utf-8" ></script>
 <!--mis JSs-->
 <script src="/js/init.js" charset="utf-8" ></script>
+<script src="/js/model/proyecto.js" charset="utf-8" ></script>
 <script src="/js/collection/proyectos.js" charset="utf-8"></script>
-<script src="/js/model/proyecto.js" charset="utf-8" >
-</script>
 <script src="/js/view/proyecto.js" charset="utf-8" >
 </script>
 <script>
 $(function(){
-	App.View.Project = new Class.View.Project();
-	App.View.Project.render();
+	
+	App.Collection.Proyecto = new Class.Collection.Proyectos ();
+	App.Collection.Proyecto.fetch();
+	App.Collection.Proyecto.on("add", function(model){
+		App.View.Project = new Class.View.Project({model:model});
+		App.View.Project.render();
+	});
 });
 
 </script>

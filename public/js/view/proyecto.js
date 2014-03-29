@@ -11,11 +11,10 @@ Class.View.Project = Backbone.View.extend({
 	},
 	
 	render : function () {
-		console.log("Entro");
-		//var data = this.model.toJSON();
+		var data = this.model.toJSON();
 
-		var html = this.template({data:"MY DATA",image:"image", title:"titulo", tag:"tag"});
+		var html = this.template(data);
 
-		this.$el.html( html );
+		this.$el.prepend( html );
 	}
 }); 
